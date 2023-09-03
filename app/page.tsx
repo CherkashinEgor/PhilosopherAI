@@ -4,9 +4,15 @@ import ReactMarkdown from 'react-markdown';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Home() {
+
+  type MessageType = {
+    message: string;
+    type: string;
+  };
+
   const [userInput, setUserInput] = useState("");
   const [selectedPhilosopher, setSelectedPhilosopher] = useState("Marcus Aurelius");
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState<MessageType[][]>([]);
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -28,8 +34,8 @@ export default function Home() {
 
   useEffect(() => { getIndex() }, [])
 
-  const messageListRef = useRef(null);
-  const textAreaRef = useRef(null);
+  const messageListRef = useRef<HTMLDivElement>(null);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (messageListRef.current) {
@@ -50,8 +56,10 @@ export default function Home() {
     setUserInput("");
   }
 
-  const handleSubmit = async(e) => {
-    e.preventDefault();
+  const handleSubmit = async(e?: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>) => {
+    if(e) {
+      e.preventDefault();
+    }
 
     if (userInput.trim() === "") {
       return;
@@ -83,10 +91,10 @@ export default function Home() {
     setLoading(false);
   };
 
-  const handleEnter = (e) => {
+  const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && userInput) {
       if (!e.shiftKey && userInput) {
-        handleSubmit(e);
+        handleSubmit();
       }
     } else if (e.key === "Enter") {
       e.preventDefault();
