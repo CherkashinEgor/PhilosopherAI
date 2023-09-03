@@ -13,4 +13,4 @@ I started by gathering works from various philosophers, segmented them, and embe
 - Pinecone
 
 ## Live Demo 👀
-Checkout hosted version here: [View Live](https://vercel.com/cherkashinegor/philosopher-ai/HUpeH4X81u5yMB1LxxZM4HDiP7Fr)
+Checkout hosted version here: [View Live](https://philosopher-ai.vercel.app/)
