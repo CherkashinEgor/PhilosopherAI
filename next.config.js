@@ -13,11 +13,6 @@ const nextConfig = {
     //         }
     //     ]
     // },
-    env: {
-        PINECONE_API: "5046afde-c382-4b70-b8be-41cc04c664b3",
-        OPENAI_API_KEY: "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",
-        PINECONE_ENV: "asia-southeast1-gcp"
-    }
 }
 
 module.exports = nextConfig
