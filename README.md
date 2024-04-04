@@ -11,6 +11,3 @@ I started by gathering works from various philosophers, segmented them, and embe
 - LangChain
 - OpenAI
 - Pinecone
-
-## Live Demo 👀
-Checkout hosted version here: [View Live](https://philosopher-ai.vercel.app/)
